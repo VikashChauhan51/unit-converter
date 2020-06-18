@@ -23,9 +23,7 @@ namespace UnitConverter.Views
                 new HomeMenuItem {Title="About",Icon="location.png",TargetType=typeof(AboutPage) }
             };
             
-
             ListViewMenu.ItemsSource = menuItems;
-
             ListViewMenu.SelectedItem = menuItems[0];
             ListViewMenu.ItemSelected += async (sender, e) =>
             {

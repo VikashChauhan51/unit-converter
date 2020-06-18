@@ -5,10 +5,47 @@
     <Application.Resources>
         <ResourceDictionary>
             <!--Global Styles-->
+            <Color x:Key="PrimaryCyan">#198EBE</Color>
+            <Color x:Key="CyanLight">#33b5e5</Color>
+            <Color x:Key="PrimaryWhite">#fff</Color>
+            <Color x:Key="PrimaryBlack">#494949</Color>
+            <Color x:Key="PrimaryBlue">#007bff</Color>
+            <Color x:Key="PrimaryDark">#1c2331</Color>
+            <Color x:Key="PrimaryGray">#e0e0e0</Color>
+            <Color x:Key="PrimaryRed">#dc3545</Color>
+            <Color x:Key="PrimaryGreen">#28a745</Color>
+            <Color x:Key="PrimaryYellow">#fffe2a</Color>
+            <Color x:Key="PrimaryOrange">#fd7e14</Color>
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Accent">#96d1ff</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
             <Color x:Key="NavigationPrimary">#2196F3</Color>
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />
+            </Style>
+
+            <Style x:Key="BtnPrimary" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryCyan}" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryWhite}" />
+                <Setter Property="FontSize">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="11" Tablet="16"/>
+                    </Setter.Value>
+                </Setter>
+                <!--<Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="250" Tablet="320"/>
+                    </Setter.Value>
+                </Setter>-->
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="40" Tablet="50"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+
+
             </Style>
         </ResourceDictionary>
     </Application.Resources>

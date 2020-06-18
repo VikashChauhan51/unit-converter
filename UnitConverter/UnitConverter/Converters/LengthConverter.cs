@@ -5,7 +5,7 @@ using UnitConverter.Models;
 
 namespace UnitConverter.Converters
 {
-    public class LengthConverterHelper : IUnitConverter
+    public class LengthConverter : IUnitConverter
     {
 
         static readonly string[] Length_Name = new[]{ "angstrom", "astronomical unit (au)", "centimeter (cm)", "chain",

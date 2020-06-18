@@ -6,7 +6,7 @@ using UnitConverter.Models;
 namespace UnitConverter.Converters
 {
 
-    public class AreaConverterHelper : IUnitConverter
+    public class AreaConverter : IUnitConverter
     {
         public static readonly string[] Aread_Name = new[]{"acre", "are (a)", "barn (b)", "hectare (ha)", "homestead", "rood",
     "square centimeter (cm<sup>2</sup>)", "square foot (ft<sup>2</sup>)", "square inch (in<sup>2</sup>)",

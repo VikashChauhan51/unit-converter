@@ -13,12 +13,12 @@ namespace UnitConverter.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LengthConverterPage : ContentPage
     {
-        private readonly LengthConverterHelper _lengthConverter;
+        private readonly IUnitConverter _lengthConverter;
         public LengthConverterPage()
         {
             InitializeComponent();
             Title = "Length Converter";
-            _lengthConverter = new LengthConverterHelper();
+            _lengthConverter = new LengthConverter();
             FromUnitPicker.ItemsSource = _lengthConverter.GetUnitTypes().ToList();
             ToUnitPicker.ItemsSource = _lengthConverter.GetUnitTypes().ToList();
             FromUnitPicker.SelectedIndex = 0;
@@ -44,9 +44,11 @@ namespace UnitConverter.Views
             }
             catch
             {
-                await DisplayAlert("Error", "Something went wrong", "Ok");
+                await DisplayAlert("Error", "Something went wrong. Please try again.", "Ok");
 
             }
         }
+
+         
     }
 }

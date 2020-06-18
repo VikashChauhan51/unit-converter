@@ -10,7 +10,8 @@
             <Label Text="To" FontSize="Medium" />
             <Picker x:Name="ToUnitPicker" Title="Target Unit Type"  ItemDisplayBinding="{Binding Text}"/>
             <Entry x:Name="ToEntry" Placeholder="Converted value" IsEnabled="False" />
-            <Button Text="Convert" BackgroundColor="LightCyan"  Clicked="Button_Clicked"/>
+            <Button Text="Convert" BackgroundColor="{StaticResource Primary}"
+                        TextColor="White"  Clicked="Button_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

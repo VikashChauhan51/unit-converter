@@ -1,16 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:UnitConverter.Components"
              x:Class="UnitConverter.Views.AreaConverterPage">
     <ContentPage.Content>
-        <StackLayout Margin="0" Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <Label Text="From" FontSize="Medium" />
-            <Picker x:Name="FromUnitPicker" Title="Source Unit Type" ItemDisplayBinding="{Binding Text}" />
-            <Entry x:Name="FromEntry" Placeholder="Unit value" Keyboard="Numeric" MaxLength="50" />
-            <Label Text="To" FontSize="Medium" />
-            <Picker x:Name="ToUnitPicker" Title="Target Unit Type"  ItemDisplayBinding="{Binding Text}"/>
-            <Entry x:Name="ToEntry" Placeholder="Converted value" IsEnabled="False" />
-            <Button Text="Convert" BackgroundColor="LightCyan"  Clicked="Button_Clicked"/>
-        </StackLayout>
+
+        <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Default" >
+            <StackLayout Margin="5" Padding="10" Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Frame Margin="0" Padding="5" CornerRadius="8" HasShadow="False" BackgroundColor="Transparent">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <ImageButton Grid.Column="1" x:Name="btnShare" Source="share.png" BackgroundColor="Transparent" HeightRequest="24" HorizontalOptions="End" Clicked="BtnShare_Clicked" />
+                        <ImageButton Grid.Column="0" x:Name="btnCopy" Source="copy.png" BackgroundColor="Transparent"  HeightRequest="24" HorizontalOptions="Start" Clicked="BtnCopy_Clicked" />
+                    </Grid>
+                </Frame>
+
+                <Label Text="From:" HorizontalOptions="Start" FontAttributes="Bold" FontSize="Medium" />
+                <components:LessSuckyPicker x:Name="FromUnitPicker" Title="Select Unit Type" ItemDisplayBinding="{Binding Text}" />
+
+                <Label Text="To:" FontAttributes="Bold" FontSize="Medium" />
+                <components:LessSuckyPicker x:Name="ToUnitPicker" Title="Select Unit Type"  ItemDisplayBinding="{Binding Text}"/>
+                <components:UnitEntry x:Name="FromEntry" TextChanged="FromEntry_TextChanged" Padding="13"
+            BackgroundColor="{StaticResource PrimaryWhite}"
+            BorderColor="{StaticResource PrimaryGray}"
+            BorderThickness="1"
+            PlaceholderColor="{StaticResource PrimaryGray}"
+            CornerRadius="8" Placeholder="value" Keyboard="Numeric" MaxLength="50" />
+                <components:UnitEntry x:Name="ToEntry" Padding="13"
+            BackgroundColor="{StaticResource PrimaryWhite}"
+            BorderColor="{StaticResource PrimaryGray}"
+            BorderThickness="1"
+            CornerRadius="8"
+            Placeholder="result"
+            PlaceholderColor="{StaticResource PrimaryGray}" IsEnabled="False" />
+                <Button Text="Convert"  Style="{StaticResource BtnPrimary}" HeightRequest="50"  CornerRadius="8" Clicked="Button_Clicked"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
