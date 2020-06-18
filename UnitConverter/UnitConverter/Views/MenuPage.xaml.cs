@@ -18,9 +18,11 @@ namespace UnitConverter.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+                new HomeMenuItem { Title="Area Converter", Icon="location.png",TargetType=typeof(AreaConverterPage) },
+                new HomeMenuItem { Title="Length Converter", Icon="length.png",TargetType=typeof(LengthConverterPage) },
+                new HomeMenuItem {Title="About",Icon="location.png",TargetType=typeof(AboutPage) }
             };
+            
 
             ListViewMenu.ItemsSource = menuItems;
 
@@ -30,8 +32,8 @@ namespace UnitConverter.Views
                 if (e.SelectedItem == null)
                     return;
 
-                var id = (int)((HomeMenuItem)e.SelectedItem).Id;
-                await RootPage.NavigateFromMenu(id);
+                var page = ((HomeMenuItem)e.SelectedItem).TargetType;
+                await RootPage.NavigateFromMenu(page);
             };
         }
     }
