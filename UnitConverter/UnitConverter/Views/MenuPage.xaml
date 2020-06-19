@@ -28,8 +28,8 @@
                              Spacing="20">
 
                             <Image Source="{Binding Icon}"
-                         WidthRequest="32"
-                         HeightRequest="32"
+                         WidthRequest="18"
+                         HeightRequest="18"
                          VerticalOptions="Center" />
 
                             <Label Text="{Binding Title}"

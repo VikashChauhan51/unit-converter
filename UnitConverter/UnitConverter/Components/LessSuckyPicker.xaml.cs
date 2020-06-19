@@ -12,13 +12,17 @@ namespace UnitConverter.Components
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LessSuckyPicker : ContentView
     {
+        public event EventHandler SelectedIndexChanged;
         public LessSuckyPicker()
         {
             InitializeComponent();
-           
+            borderlessPicker.SelectedIndexChanged += BorderlessPicker_SelectedIndexChanged;
         }
- 
- 
+
+        private void BorderlessPicker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectedIndexChanged?.Invoke(sender, e);
+        }
 
         public BorderlessPicker Picker { get => borderlessPicker; set => borderlessPicker = value; }
 

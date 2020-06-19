@@ -15,6 +15,7 @@ namespace UnitConverter.Views
     public partial class AreaConverterPage : ContentPage
     {
         private readonly IUnitConverter _areaConverter;
+        string message = string.Empty;
         public AreaConverterPage()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace UnitConverter.Views
             ToUnitPicker.ItemsSource = _areaConverter.GetUnitTypes().ToList();
             FromUnitPicker.SelectedIndex = 0;
             ToUnitPicker.SelectedIndex = 0;
+            Reset();
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
@@ -31,14 +33,15 @@ namespace UnitConverter.Views
 
             try
             {
-                double from;
-                var fromType = FromUnitPicker.SelectedItem as Unit;
-                var toType = ToUnitPicker.SelectedItem as Unit;
+                Reset();
+                Unit fromType = FromUnitPicker.SelectedItem as Unit;
+                Unit toType = ToUnitPicker.SelectedItem as Unit;
                 if (fromType != null && toType != null)
                 {
-                    if (double.TryParse(FromEntry.Text, out from))
+                    if (double.TryParse(FromEntry.Text, out double from))
                     {
                         ToEntry.Text = _areaConverter.Convert(fromType.Id, toType.Id, from);
+                        message = $"{FromEntry.Text} {fromType.Text} is equal to {ToEntry.Text} {toType.Text}";
                     }
 
                 }
@@ -50,33 +53,29 @@ namespace UnitConverter.Views
             }
         }
 
+        private void Reset()
+        {
+            message = string.Empty;
+            ToEntry.Text = string.Empty;
+        }
+
         private void FromEntry_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Entry fromText = sender as Entry;
-            if (fromText != null)
+            if (sender is Entry fromText)
             {
-                if (string.IsNullOrEmpty(fromText.Text))
-                    ToEntry.Text = string.Empty;
+                Reset();
+
             }
         }
 
-        private string GetResult()
-        {
-            var fromType = FromUnitPicker.SelectedItem as Unit;
-            var toType = ToUnitPicker.SelectedItem as Unit;
-            if (fromType != null && toType != null)
-                return $"{FromEntry.Text} {fromType.Text} is equal to {ToEntry.Text} {toType.Text}";
-            return string.Empty;
-
-        }
         private async void BtnShare_Clicked(object sender, EventArgs e)
         {
-            var result = GetResult();
-            if (!string.IsNullOrEmpty(result))
+
+            if (!string.IsNullOrEmpty(message))
             {
                 await Share.RequestAsync(new ShareTextRequest
                 {
-                    Text = result,
+                    Text = message,
                     Title = "Area Converter Result"
                 });
             }
@@ -84,11 +83,16 @@ namespace UnitConverter.Views
 
         private async void BtnCopy_Clicked(object sender, EventArgs e)
         {
-            var result = GetResult();
-            if (!string.IsNullOrEmpty(result))
+
+            if (!string.IsNullOrEmpty(message))
             {
-                await Clipboard.SetTextAsync(result);
+                await Clipboard.SetTextAsync(message);
             }
+        }
+
+        private void OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            Reset();
         }
     }
 }

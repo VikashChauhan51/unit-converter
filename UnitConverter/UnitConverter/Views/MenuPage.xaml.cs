@@ -18,9 +18,12 @@ namespace UnitConverter.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem { Title="Area Converter", Icon="location.png",TargetType=typeof(AreaConverterPage) },
+                new HomeMenuItem { Title="Area Converter", Icon="area.png",TargetType=typeof(AreaConverterPage) },
                 new HomeMenuItem { Title="Length Converter", Icon="length.png",TargetType=typeof(LengthConverterPage) },
-                new HomeMenuItem {Title="About",Icon="location.png",TargetType=typeof(AboutPage) }
+                new HomeMenuItem { Title="Time Converter", Icon="time.png",TargetType=typeof(TimeConverterPage) },
+                new HomeMenuItem { Title="Temperature Converter", Icon="temperature.png",TargetType=typeof(TemperatureConverterPage) },
+                new HomeMenuItem { Title="Blood Sugar Converter", Icon="drop.png",TargetType=typeof(BloodSugarConverterPage) },
+                new HomeMenuItem {Title="About",Icon="info.png",TargetType=typeof(AboutPage) }
             };
             
             ListViewMenu.ItemsSource = menuItems;

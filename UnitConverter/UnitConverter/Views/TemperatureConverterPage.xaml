@@ -2,9 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:components="clr-namespace:UnitConverter.Components"
-             x:Class="UnitConverter.Views.AreaConverterPage">
+             x:Class="UnitConverter.Views.TemperatureConverterPage">
     <ContentPage.Content>
-
         <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Default" >
             <StackLayout Margin="5" Padding="10" Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <Frame Margin="0" Padding="5" CornerRadius="8" HasShadow="False" BackgroundColor="Transparent">

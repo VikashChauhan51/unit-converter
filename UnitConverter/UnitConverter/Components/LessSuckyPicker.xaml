@@ -4,11 +4,10 @@
              xmlns:components="clr-namespace:UnitConverter.Components"
              x:Class="UnitConverter.Components.LessSuckyPicker">
     <ContentView.Content>
-        <Frame BorderColor="Gray" Padding="0" Margin="0, 10, 0, 0" CornerRadius="8">
+        <Frame BorderColor="{StaticResource PrimaryGray}" Padding="0" Margin="0, 10, 0, 0" CornerRadius="8">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
-        
                     <ColumnDefinition Width="16" />
                     <ColumnDefinition Width="1" />
                 </Grid.ColumnDefinitions>

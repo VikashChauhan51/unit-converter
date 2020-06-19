@@ -11,18 +11,18 @@ using Xamarin.Forms.Xaml;
 
 namespace UnitConverter.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LengthConverterPage : ContentPage
-    {
-        private readonly IUnitConverter _lengthConverter;
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class TimeConverterPage : ContentPage
+	{
+        private readonly IUnitConverter _timeConverter;
         string message = string.Empty;
-        public LengthConverterPage()
-        {
-            InitializeComponent();
-            Title = "Length Converter";
-            _lengthConverter = new LengthConverter();
-            FromUnitPicker.ItemsSource = _lengthConverter.GetUnitTypes().ToList();
-            ToUnitPicker.ItemsSource = _lengthConverter.GetUnitTypes().ToList();
+        public TimeConverterPage ()
+		{
+			InitializeComponent ();
+            Title = "Time Converter";
+            _timeConverter = new TimeConverter();
+            FromUnitPicker.ItemsSource = _timeConverter.GetUnitTypes().ToList();
+            ToUnitPicker.ItemsSource = _timeConverter.GetUnitTypes().ToList();
             FromUnitPicker.SelectedIndex = 0;
             ToUnitPicker.SelectedIndex = 0;
             Reset();
@@ -33,13 +33,13 @@ namespace UnitConverter.Views
             try
             {
                 Reset();
-                var fromType = FromUnitPicker.SelectedItem as Unit;
-                var toType = ToUnitPicker.SelectedItem as Unit;
+                Unit fromType = FromUnitPicker.SelectedItem as Unit;
+                Unit toType = ToUnitPicker.SelectedItem as Unit;
                 if (fromType != null && toType != null)
                 {
                     if (double.TryParse(FromEntry.Text, out double from))
                     {
-                        ToEntry.Text = _lengthConverter.Convert(fromType.Id, toType.Id, from);
+                        ToEntry.Text = _timeConverter.Convert(fromType.Id, toType.Id, from);
                         message = $"{FromEntry.Text} {fromType.Text} is equal to {ToEntry.Text} {toType.Text}";
                     }
 
@@ -67,7 +67,6 @@ namespace UnitConverter.Views
             }
         }
 
-
         private async void BtnShare_Clicked(object sender, EventArgs e)
         {
 
@@ -76,7 +75,7 @@ namespace UnitConverter.Views
                 await Share.RequestAsync(new ShareTextRequest
                 {
                     Text = message,
-                    Title = "Length Converter Result"
+                    Title = "Time Converter Result"
                 });
             }
         }
