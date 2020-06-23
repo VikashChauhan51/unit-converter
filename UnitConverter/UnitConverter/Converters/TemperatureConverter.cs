@@ -5,10 +5,25 @@ using UnitConverter.Models;
 
 namespace UnitConverter.Converters
 {
-    public class TemperatureConverter : IUnitConverter
+    public class TemperatureConverter : UnitConverterBase
     {
 
-        public string Convert(int from, int to, double value)
+        public TemperatureConverter() : base(new List<Factor> {
+
+         new Factor {
+             Value = 1,
+             Name = "Celsius (°C)" },
+         new Factor {
+             Value = 33.8,
+             Name = "Fahrenheit (°F)" },
+         new Factor {
+             Value = 274.15,
+             Name = "kelvin (K)" }
+        })
+        {
+
+        }
+        public override string Convert(int from, int to, double value)
         {
             string result = string.Empty;
 
@@ -39,11 +54,6 @@ namespace UnitConverter.Converters
             return result;
         }
 
-        public IEnumerable<Unit> GetUnitTypes()
-        {
-            yield return new Unit { Id = 0, Text = "Celsius (°C)" };
-            yield return new Unit { Id = 1, Text = "Fahrenheit (°F)" };
-            yield return new Unit { Id = 2, Text = "kelvin (K)" };
-        }
+
     }
 }

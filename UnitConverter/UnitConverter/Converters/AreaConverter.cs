@@ -8,7 +8,8 @@ namespace UnitConverter.Converters
 
     public class AreaConverter : UnitConverterBase
     {
-        private readonly List<Factor> _factors = new List<Factor>
+
+        public AreaConverter() : base(new List<Factor>
         {
             new Factor
             {
@@ -90,8 +91,11 @@ namespace UnitConverter.Converters
                 Value=1.0725059959512e-8,
                 Name="Township (twp)"
             }
-        };
-        protected override List<Factor> Factors => _factors;
+        })
+        {
+
+        }
+
 
     }
 }

@@ -7,7 +7,11 @@ namespace UnitConverter.Converters
 {
     public abstract class UnitConverterBase : IUnitConverter
     {
-        protected abstract List<Factor> Factors { get; }
+        protected List<Factor> Factors;
+        public UnitConverterBase(List<Factor> factors)
+        {
+            Factors = factors;
+        }
         public virtual string Convert(int from, int to, double value)
         {
             var faqsorg = Factors[to].Value / Factors[from].Value;
