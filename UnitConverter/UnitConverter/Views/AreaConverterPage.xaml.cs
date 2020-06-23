@@ -16,7 +16,6 @@ namespace UnitConverter.Views
     public partial class AreaConverterPage : ContentPage
     {
         private readonly IUnitConverter _areaConverter;
-        string message = string.Empty;
         public AreaConverterPage()
         {
             InitializeComponent();

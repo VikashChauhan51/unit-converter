@@ -18,7 +18,7 @@ namespace UnitConverter.Converters
              Name = "Fahrenheit (°F)" },
          new Factor {
              Value = 274.15,
-             Name = "kelvin (K)" }
+             Name = "Kelvin (K)" }
         })
         {
 

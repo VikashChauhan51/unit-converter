@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Linq;
 
 namespace UnitConverter.Views
 {
@@ -19,10 +20,13 @@ namespace UnitConverter.Views
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem { Title="Area Converter", Icon="area.png",TargetType=typeof(AreaConverterPage) },
+                new HomeMenuItem { Title="Angle Converter", Icon="angle.png",TargetType=typeof(AngleConverterPage) },
+                new HomeMenuItem { Title="Acceleration Converter", Icon="acceleration.png",TargetType=typeof(AccelerationConverterPage) },
+                new HomeMenuItem { Title="Blood Sugar Converter", Icon="drop.png",TargetType=typeof(BloodSugarConverterPage) },
                 new HomeMenuItem { Title="Length Converter", Icon="length.png",TargetType=typeof(LengthConverterPage) },
                 new HomeMenuItem { Title="Time Converter", Icon="time.png",TargetType=typeof(TimeConverterPage) },
                 new HomeMenuItem { Title="Temperature Converter", Icon="temperature.png",TargetType=typeof(TemperatureConverterPage) },
-                new HomeMenuItem { Title="Blood Sugar Converter", Icon="drop.png",TargetType=typeof(BloodSugarConverterPage) },
+                
                 new HomeMenuItem {Title="About",Icon="info.png",TargetType=typeof(AboutPage) }
             };
             
