@@ -5,22 +5,30 @@ using UnitConverter.Models;
 
 namespace UnitConverter.Converters
 {
-    public class BloodSugarConverter : IUnitConverter
+    public class BloodSugarConverter : UnitConverterBase
     {
-        static string[] Unit_Name = new[] { "mmol/l", "mg/dl", "mg%" };
-        static int[] Factors = new[] { 1, 18, 18 };
-        public string Convert(int from, int to, double value)
+        public BloodSugarConverter() : base(
+            new List<Factor>
         {
-            var faqsorg = Factors[to] / Factors[from];
-            var resfaqs = value * faqsorg;
-            return resfaqs.ToString();
+            new Factor
+            {
+                Value=1,
+                Name="mmol/l"
+            },
+            new Factor
+            {
+                Value=18,
+                Name="mg/dl"
+            },
+            new Factor
+            {
+                Value=18,
+                Name="mg%"
+            }
+            })
+        {
+
         }
 
-        public IEnumerable<Unit> GetUnitTypes()
-        {
-            yield return new Unit { Id = 0, Text = "mmol/l" };
-            yield return new Unit { Id = 1, Text = "mg/dl" };
-            yield return new Unit { Id = 2, Text = "mg%" };
-        }
     }
 }

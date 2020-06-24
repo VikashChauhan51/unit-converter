@@ -1,8 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:components="clr-namespace:UnitConverter.Components"
-             x:Class="UnitConverter.Views.BloodSugarConverterPage">
+             mc:Ignorable="d"
+             x:Class="UnitConverter.Views.CapacitanceConverterPage">
     <ContentPage.Content>
         <components:UnitConverterView x:Name="UnitView" />
     </ContentPage.Content>
