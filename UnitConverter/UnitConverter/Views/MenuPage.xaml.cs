@@ -26,13 +26,17 @@ namespace UnitConverter.Views
                 new HomeMenuItem { Title="Capacitance Converter", Icon="capacitor.png",TargetType=typeof(CapacitanceConverterPage) },
                 new HomeMenuItem { Title="Data Storage Converter", Icon="disk.png",TargetType=typeof(DataStorageConverterPage) },
                 new HomeMenuItem { Title="Data Transfer Converter", Icon="transfer.png",TargetType=typeof(DataTransferConverterPage) },
+                new HomeMenuItem { Title="Density Converter", Icon="filter.png",TargetType=typeof(DensityConverterPage) },
+                new HomeMenuItem { Title="Resistance Converter", Icon="flash.png",TargetType=typeof(ElectricalResistanceConverterPage) },
+                new HomeMenuItem { Title="Electric Charge Converter", Icon="electricity.png",TargetType=typeof(ElectricChargeConverterPage) },
+                new HomeMenuItem { Title="Energy Converter", Icon="lightning.png",TargetType=typeof(EnergyConverterPage) },
                 new HomeMenuItem { Title="Length Converter", Icon="length.png",TargetType=typeof(LengthConverterPage) },
                 new HomeMenuItem { Title="Time Converter", Icon="time.png",TargetType=typeof(TimeConverterPage) },
                 new HomeMenuItem { Title="Temperature Converter", Icon="temperature.png",TargetType=typeof(TemperatureConverterPage) },
-                
+
                 new HomeMenuItem {Title="About",Icon="info.png",TargetType=typeof(AboutPage) }
             };
-            
+
             ListViewMenu.ItemsSource = menuItems;
             ListViewMenu.SelectedItem = menuItems[0];
             ListViewMenu.ItemSelected += async (sender, e) =>
