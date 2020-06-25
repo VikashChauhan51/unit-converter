@@ -30,6 +30,7 @@ namespace UnitConverter.Views
                 new HomeMenuItem { Title="Resistance Converter", Icon="flash.png",TargetType=typeof(ElectricalResistanceConverterPage) },
                 new HomeMenuItem { Title="Electric Charge Converter", Icon="electricity.png",TargetType=typeof(ElectricChargeConverterPage) },
                 new HomeMenuItem { Title="Energy Converter", Icon="lightning.png",TargetType=typeof(EnergyConverterPage) },
+                new HomeMenuItem { Title="Force Converter", Icon="lever.png",TargetType=typeof(ForceConverterPage) },
                 new HomeMenuItem { Title="Length Converter", Icon="length.png",TargetType=typeof(LengthConverterPage) },
                 new HomeMenuItem { Title="Time Converter", Icon="time.png",TargetType=typeof(TimeConverterPage) },
                 new HomeMenuItem { Title="Temperature Converter", Icon="temperature.png",TargetType=typeof(TemperatureConverterPage) },
