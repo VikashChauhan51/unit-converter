@@ -30,7 +30,7 @@
             BorderColor="{StaticResource PrimaryGray}"
             BorderThickness="1"
             PlaceholderColor="{StaticResource PrimaryGray}"
-            CornerRadius="8" Placeholder="value" Keyboard="Numeric" MaxLength="50" />
+            CornerRadius="8" Placeholder="value" Keyboard="Numeric" MaxLength="100" />
                 <components:UnitEntry x:Name="ToEntry" Padding="13"
             BackgroundColor="{StaticResource PrimaryWhite}"
             BorderColor="{StaticResource PrimaryGray}"

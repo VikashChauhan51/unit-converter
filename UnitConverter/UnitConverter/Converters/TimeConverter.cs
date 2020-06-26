@@ -5,41 +5,83 @@ using UnitConverter.Models;
 
 namespace UnitConverter.Converters
 {
-    public class TimeConverter : IUnitConverter
+    public class TimeConverter : UnitConverterBase
     {
-        static string[] Unit_Name = new[] { "millennium", "century", "decade", "Julian year", "Gregorian year",
-            "tropical year", "year", "month", "fortnight", "week", "day", "hour",
-            "minute", "second", "millisecond", "microsecond", "nanosecond" };
-        static double[] Factors = new[] { 2.7397260273973E-6, 2.7397260273973E-5, 0.00027397260273973,
-            0.0027378507871321, 0.0027379070069885, 0.0027379092633269, 0.0027397260273973, 0.032853922534821,
-            0.071428571428571, 0.14285714285714, 1, 24, 1440, 86400, 86400000, 86400000000, 86400000000000 };
-
-        public string Convert(int from, int to, double value)
+        
+        public TimeConverter() : base(new List<Factor>
         {
-            var faqsorg = Factors[to] / Factors[from];
-            var resfaqs = value * faqsorg;
-            return resfaqs.ToString();
+        new Factor{
+ Value=2.7397260273973E-6,
+ Name="Millennium"
+ },
+new Factor{
+ Value=2.7397260273973E-5,
+ Name="Century"
+ },
+new Factor{
+ Value=0.00027397260273973,
+ Name="Decade"
+ },
+new Factor{
+ Value=0.0027378507871321,
+ Name="Julian Year"
+ },
+new Factor{
+ Value=0.0027379070069885,
+ Name="Gregorian Year"
+ },
+new Factor{
+ Value=0.0027379092633269,
+ Name="Tropical Year"
+ },
+new Factor{
+ Value=0.0027397260273973,
+ Name="Year"
+ },
+new Factor{
+ Value=0.032853922534821,
+ Name="Month"
+ },
+new Factor{
+ Value=0.071428571428571,
+ Name="Fortnight"
+ },
+new Factor{
+ Value=0.14285714285714,
+ Name="Week"
+ },
+new Factor{
+ Value=1,
+ Name="Day"
+ },
+new Factor{
+ Value=24,
+ Name="Hour"
+ },
+new Factor{
+ Value=1440,
+ Name="Minute"
+ },
+new Factor{
+ Value=86400,
+ Name="Second"
+ },
+new Factor{
+ Value=86400000,
+ Name="Millisecond"
+ },
+new Factor{
+ Value=86400000000,
+ Name="Microsecond"
+ },
+new Factor{
+ Value=86400000000000,
+ Name="Nanosecond"
+ }
+        })
+        {
+
         }
 
-        public IEnumerable<Unit> GetUnitTypes()
-        {
-            yield return new Unit { Id = 0, Text = "Millennium" };
-            yield return new Unit { Id = 1, Text = "Century" };
-            yield return new Unit { Id = 2, Text = "Decade" };
-            yield return new Unit { Id = 3, Text = "Julian Year" };
-            yield return new Unit { Id = 4, Text = "Gregorian Year" };
-            yield return new Unit { Id = 5, Text = "Tropical Year" };
-            yield return new Unit { Id = 6, Text = "Year" };
-            yield return new Unit { Id = 7, Text = "Month" };
-            yield return new Unit { Id = 8, Text = "Fortnight" };
-            yield return new Unit { Id = 9, Text = "Week" };
-            yield return new Unit { Id = 10, Text = "Day" };
-            yield return new Unit { Id = 11, Text = "Hour" };
-            yield return new Unit { Id = 12, Text = "Minute" };
-            yield return new Unit { Id = 13, Text = "Second" };
-            yield return new Unit { Id = 14, Text = "Millisecond" };
-            yield return new Unit { Id = 15, Text = "Microsecond" };
-            yield return new Unit { Id = 16, Text = "Nanosecond" };
-        }
     }
 }
