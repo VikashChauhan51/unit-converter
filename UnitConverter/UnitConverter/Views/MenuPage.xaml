@@ -7,7 +7,7 @@
         <StackLayout BackgroundColor="#2196F3"
                      HeightRequest="75">
 
-            <Label Text="Unit Converter"
+            <Label Text="Unit Converter Hub"
                  FontSize="20"
                  VerticalOptions="CenterAndExpand"
                  TextColor="White"
