@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using System.Linq;
 
 namespace UnitConverter.Views
 {
@@ -10,6 +10,7 @@ namespace UnitConverter.Views
     public partial class MenuPage : ContentPage
     {
         MainPage RootPage { get => Application.Current.MainPage as MainPage; }
+        bool searching = false;
         static readonly List<HomeMenuItem> menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem { Title="Acceleration Converter", Icon="acceleration.png",TargetType=typeof(AccelerationConverterPage) },
@@ -58,7 +59,52 @@ namespace UnitConverter.Views
 
                 var page = ((HomeMenuItem)e.SelectedItem).TargetType;
                 await RootPage.NavigateFromMenu(page);
+                 
             };
+        }
+
+        private void searchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+               
+                if (searching)
+                    return;
+
+                var text = e.NewTextValue.ToLower();
+                searching = true;
+                ListViewMenu.BeginRefresh();
+
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    ListViewMenu.ItemsSource = menuItems;
+                }
+                else
+                {
+                    var dataEmpty = menuItems.Where(x => x.Title.ToLower().StartsWith(text)).ToList();
+                    ListViewMenu.ItemsSource = dataEmpty;
+
+                }
+               
+
+            }
+            catch
+            {
+                Reset();
+            }
+            finally
+            {
+                searching = false;
+            }
+            ListViewMenu.EndRefresh();
+        }
+
+        private void Reset()
+        {
+            searchBox.Text = string.Empty;
+            ListViewMenu.ItemsSource = menuItems;
+            ListViewMenu.SelectedItem = menuItems[0];
+
         }
     }
 }

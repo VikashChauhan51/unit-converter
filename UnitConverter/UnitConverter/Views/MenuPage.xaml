@@ -1,17 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:UnitConverter.Components"
              x:Class="UnitConverter.Views.MenuPage"
-             Title="Menu" BackgroundColor="#ffffff" >
+             Title="Menu" BackgroundColor="{StaticResource PrimaryWhite}" >
     <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
-        <StackLayout BackgroundColor="#2196F3"
+        <StackLayout BackgroundColor="{StaticResource PrimaryCyan}"
                      HeightRequest="75">
 
             <Label Text="Unit Converter Hub"
                  FontSize="20"
                  VerticalOptions="CenterAndExpand"
-                 TextColor="White"
+                 TextColor="{StaticResource PrimaryWhite}"
                  HorizontalOptions="Center"/>
+            <components:UnitEntry x:Name="searchBox" PlaceholderColor="{StaticResource PrimaryWhite}" HorizontalOptions="Center" FontAttributes="Bold" Placeholder="Serach Unit" FontSize="Small" TextColor="{StaticResource PrimaryWhite}" TextChanged="searchBox_TextChanged" />
         </StackLayout>
         <ListView x:Name="ListViewMenu"
                   RowHeight="60"
