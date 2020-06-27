@@ -7,7 +7,7 @@ namespace UnitConverter.Converters
 {
     public class TimeConverter : UnitConverterBase
     {
-        
+
         public TimeConverter() : base(new List<Factor>
         {
         new Factor{
@@ -83,5 +83,24 @@ new Factor{
 
         }
 
+        public override string Convert(int from, int to, double value)
+        {
+
+            var result = base.Convert(from, to, value);
+
+            //year to month
+            if ((from == 6 && to == 7))
+            {
+                if (value % 1 == 0 && double.TryParse(result, out double output))
+                    result = (System.Convert.ToInt32(Math.Ceiling(output))).ToString();
+            }
+            //month to year
+            else if ((from == 7 && to == 6))
+            {
+                if (value % 12 == 0 && double.TryParse(result, out double output))
+                    result = Math.Floor(output).ToString();
+            }
+            return result;
+        }
     }
 }

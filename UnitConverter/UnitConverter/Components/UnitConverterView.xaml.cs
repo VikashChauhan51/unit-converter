@@ -25,7 +25,7 @@ namespace UnitConverter.Components
             FromUnitPicker.ItemsSource = source;
             ToUnitPicker.ItemsSource = source;
             FromUnitPicker.SelectedIndex = 0;
-            ToUnitPicker.SelectedIndex = 0;
+            ToUnitPicker.SelectedIndex = 1;
         }
 
         public static readonly BindableProperty ConverterProperty =
@@ -118,7 +118,11 @@ namespace UnitConverter.Components
         {
 
             if (!string.IsNullOrEmpty(message))
+            {
                 await Clipboard.SetTextAsync(message);
+                DependencyService.Get<IToast>().Show("Copied!");
+            }
+                
         }
 
         private void OnSelectedIndexChanged(object sender, EventArgs e)
