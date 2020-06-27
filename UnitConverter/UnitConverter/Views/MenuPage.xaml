@@ -13,7 +13,7 @@
                  VerticalOptions="CenterAndExpand"
                  TextColor="{StaticResource PrimaryWhite}"
                  HorizontalOptions="Center"/>
-            <components:UnitEntry x:Name="searchBox" PlaceholderColor="{StaticResource PrimaryWhite}" HorizontalOptions="Center" FontAttributes="Bold" Placeholder="Serach Unit" FontSize="Small" TextColor="{StaticResource PrimaryWhite}" TextChanged="searchBox_TextChanged" />
+            <components:UnitEntry x:Name="searchBox" PlaceholderColor="{StaticResource PrimaryWhite}" HorizontalOptions="Center" FontAttributes="Bold" Placeholder="Search Unit" FontSize="Small" TextColor="{StaticResource PrimaryWhite}" TextChanged="searchBox_TextChanged" />
         </StackLayout>
         <ListView x:Name="ListViewMenu"
                   RowHeight="60"
