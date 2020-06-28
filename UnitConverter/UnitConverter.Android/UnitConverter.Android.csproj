@@ -74,8 +74,12 @@
     <PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v7.CardView" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Ads.Lite">
+      <Version>71.1720.2</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomRenderers\AdViewRenderer.cs" />
     <Compile Include="CustomRenderers\BordlessPickerRenderer.cs" />
     <Compile Include="CustomRenderers\UnitEntryRenderer.cs" />
     <Compile Include="MainActivity.cs" />

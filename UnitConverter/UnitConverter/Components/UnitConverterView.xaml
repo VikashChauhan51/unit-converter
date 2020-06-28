@@ -6,40 +6,48 @@
              xmlns:components="clr-namespace:UnitConverter.Components"
              mc:Ignorable="d"
              x:Class="UnitConverter.Components.UnitConverterView">
-  <ContentView.Content>
-        <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Default" >
-            <StackLayout Margin="5" Padding="10" Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <Frame Margin="0" Padding="5" CornerRadius="8" HasShadow="False" BackgroundColor="Transparent">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <ImageButton Grid.Column="1" x:Name="btnShare" Source="share.png" BackgroundColor="Transparent" HeightRequest="24" HorizontalOptions="End" Clicked="BtnShare_Clicked" />
-                        <ImageButton Grid.Column="0" x:Name="btnCopy" Source="copy.png" BackgroundColor="Transparent"  HeightRequest="24" HorizontalOptions="Start" Clicked="BtnCopy_Clicked" />
-                    </Grid>
-                </Frame>
+    <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="80" />
+            </Grid.RowDefinitions>
+            <ScrollView Grid.Row="0" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Default" >
+                <StackLayout Margin="5" Padding="10" Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Frame Margin="0" Padding="5" CornerRadius="8" HasShadow="False" BackgroundColor="Transparent">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <ImageButton Grid.Column="1" x:Name="btnShare" Source="share.png" BackgroundColor="Transparent" HeightRequest="24" HorizontalOptions="End" Clicked="BtnShare_Clicked" />
+                            <ImageButton Grid.Column="0" x:Name="btnCopy" Source="copy.png" BackgroundColor="Transparent"  HeightRequest="24" HorizontalOptions="Start" Clicked="BtnCopy_Clicked" />
+                        </Grid>
+                    </Frame>
 
-                <Label Text="From:" HorizontalOptions="Start" FontAttributes="Bold" FontSize="Medium" />
-                <components:LessSuckyPicker x:Name="FromUnitPicker" Title="Select Unit Type" SelectedIndexChanged="OnSelectedIndexChanged" ItemDisplayBinding="{Binding Text}" />
+                    <Label Text="From:" HorizontalOptions="Start" FontAttributes="Bold" FontSize="Medium" />
+                    <components:LessSuckyPicker x:Name="FromUnitPicker" Title="Select Unit Type" SelectedIndexChanged="OnSelectedIndexChanged" ItemDisplayBinding="{Binding Text}" />
 
-                <Label Text="To:" FontAttributes="Bold" FontSize="Medium" />
-                <components:LessSuckyPicker x:Name="ToUnitPicker" SelectedIndexChanged="OnSelectedIndexChanged" Title="Select Unit Type"  ItemDisplayBinding="{Binding Text}"/>
-                <components:UnitEntry x:Name="FromEntry" TextChanged="FromEntry_TextChanged" Padding="13"
+                    <Label Text="To:" FontAttributes="Bold" FontSize="Medium" />
+                    <components:LessSuckyPicker x:Name="ToUnitPicker" SelectedIndexChanged="OnSelectedIndexChanged" Title="Select Unit Type"  ItemDisplayBinding="{Binding Text}"/>
+                    <components:UnitEntry x:Name="FromEntry" TextChanged="FromEntry_TextChanged" Padding="13"
             BackgroundColor="{StaticResource PrimaryWhite}"
             BorderColor="{StaticResource PrimaryGray}"
             BorderThickness="1"
             PlaceholderColor="{StaticResource PrimaryGray}"
             CornerRadius="8" Placeholder="value" Keyboard="Numeric" MaxLength="100" />
-                <components:UnitEntry x:Name="ToEntry" Padding="13"
+                    <components:UnitEntry x:Name="ToEntry" Padding="13"
             BackgroundColor="{StaticResource PrimaryWhite}"
             BorderColor="{StaticResource PrimaryGray}"
             BorderThickness="1"
             CornerRadius="8"
             Placeholder="result"
             PlaceholderColor="{StaticResource PrimaryGray}" IsEnabled="False" />
-                <Button Text="Convert"  Style="{StaticResource BtnPrimary}" HeightRequest="50"  CornerRadius="8" Clicked="Button_Clicked"/>
-            </StackLayout>
-        </ScrollView>
+                    <Button Text="Convert"  Style="{StaticResource BtnPrimary}" HeightRequest="50"  CornerRadius="8" Clicked="Button_Clicked"/>
+                </StackLayout>
+            </ScrollView>
+            <components:AdControlView  Grid.Row="1"  BackgroundColor="{StaticResource PrimaryWhite}" />
+        </Grid>
+
     </ContentView.Content>
 </ContentView>
