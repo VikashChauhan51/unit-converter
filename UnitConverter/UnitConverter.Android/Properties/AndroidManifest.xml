@@ -4,7 +4,7 @@
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	 
-   <application android:label="Unit Converter Hub" android:usesCleartextTraffic="true">
+   <application android:label="Unit Converter Hub" android:icon="@mipmap/icon" android:usesCleartextTraffic="true">
     <meta-data
       android:name="com.google.android.gms.ads.APPLICATION_ID"
       android:value="ca-app-pub-1735888914949943~5490391091"/>
