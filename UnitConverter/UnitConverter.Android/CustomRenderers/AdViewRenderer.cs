@@ -20,14 +20,12 @@ namespace UnitConverter.Droid.CustomRenderers
 {
     public class AdViewRenderer : ViewRenderer<AdControlView, AdView>
     {
-        string adUnitId = "ca-app-pub-1735888914949943/5107247712";
+        static readonly string adUnitId = "ca-app-pub-1735888914949943/5107247712";
         //Note you may want to adjust this, see further down.
-        AdSize adSize = AdSize.SmartBanner;
-        AdView adView;
-        private Context _context;
+
         public AdViewRenderer(Context context) : base(context)
         {
-            _context = context;
+
         }
 
         protected override void OnElementChanged(ElementChangedEventArgs<AdControlView> e)
@@ -35,10 +33,9 @@ namespace UnitConverter.Droid.CustomRenderers
             base.OnElementChanged(e);
             try
             {
-                if (Control == null)
+                if (e.NewElement != null && Control == null)
                 {
-                    CreateNativeAdControl();
-                    SetNativeControl(adView);
+                    SetNativeControl(CreateAdView());
                 }
             }
             catch
@@ -48,23 +45,18 @@ namespace UnitConverter.Droid.CustomRenderers
             }
         }
 
-        AdView CreateNativeAdControl()
+        private AdView CreateAdView()
         {
-            if (adView != null)
-                return adView;
+            var adView = new AdView(Context)
+            {
+                AdSize = AdSize.SmartBanner,
+                AdUnitId = adUnitId
+            };
 
+            adView.LayoutParameters = new LinearLayout.LayoutParams(LayoutParams.MatchParent, LayoutParams.MatchParent);
 
-            adView = new AdView(_context);
-            adView.AdSize = adSize;
-            adView.AdUnitId = adUnitId;
+            adView.LoadAd(new AdRequest.Builder().Build());
 
-            var adParams = new LinearLayout.LayoutParams(LayoutParams.WrapContent, LayoutParams.WrapContent);
-
-            adView.LayoutParameters = adParams;
-
-            adView.LoadAd(new AdRequest
-                            .Builder()
-                            .Build());
             return adView;
         }
 
