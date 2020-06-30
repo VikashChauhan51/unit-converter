@@ -10,7 +10,7 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="80" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <ScrollView Grid.Row="0" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Default" >
                 <StackLayout Margin="5" Padding="10" Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
@@ -46,7 +46,7 @@
                     <Button Text="Convert"  Style="{StaticResource BtnPrimary}" HeightRequest="50"  CornerRadius="8" Clicked="Button_Clicked"/>
                 </StackLayout>
             </ScrollView>
-            <components:AdControlView  Grid.Row="1"  BackgroundColor="{StaticResource PrimaryWhite}" />
+            <components:AdControlView  Grid.Row="1"  />
         </Grid>
 
     </ContentView.Content>
